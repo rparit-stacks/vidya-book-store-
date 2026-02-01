@@ -4,13 +4,13 @@ import { ArrowRight, BookOpen, Award, Users } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden py-12 sm:py-0">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-cream via-background to-cream-dark" />
       
       {/* Decorative elements */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
+      <div className="absolute top-20 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-0 w-48 h-48 sm:w-80 sm:h-80 bg-gold/10 rounded-full blur-3xl" />
       
       {/* Pattern overlay */}
       <div 
@@ -21,59 +21,59 @@ export function HeroSection() {
       />
 
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
           {/* Content */}
-          <div className="animate-slide-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6">
-              <Award className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Trusted Since 1961</span>
+          <div className="animate-slide-up text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary/10 rounded-full mb-4 sm:mb-6">
+              <Award className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
+              <span className="text-xs sm:text-sm font-medium text-primary">Trusted Since 1961</span>
             </div>
             
-            <h1 className="heading-display text-foreground mb-6">
+            <h1 className="heading-display text-foreground mb-4 sm:mb-6">
               Your Complete{" "}
               <span className="text-primary">Educational</span>{" "}
               Partner
             </h1>
             
-            <p className="text-body-lg text-muted-foreground mb-8 max-w-xl">
+            <p className="text-body-lg text-muted-foreground mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
               For over 60 years, Vidyarthi Book Depot has been Mumbai's most trusted destination 
               for academic books, school supplies, and educational materials. From nursery to 
               competitive exams, we've got you covered.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Link to="/catalogue">
-                <Button size="lg" className="btn-primary text-lg px-8 py-6 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
+              <Link to="/catalogue" className="w-full sm:w-auto">
+                <Button size="lg" className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full">
                   Browse Catalogue
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
               </Link>
-              <Link to="/school-partnership">
-                <Button size="lg" variant="outline" className="btn-outline text-lg px-8 py-6 w-full sm:w-auto">
+              <Link to="/school-partnership" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="btn-outline text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 w-full">
                   School Partnership
                 </Button>
               </Link>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-border">
               <div>
-                <div className="font-serif text-3xl md:text-4xl font-bold text-primary">60+</div>
-                <div className="text-sm text-muted-foreground">Years of Trust</div>
+                <div className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary">60+</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Years of Trust</div>
               </div>
               <div>
-                <div className="font-serif text-3xl md:text-4xl font-bold text-primary">500+</div>
-                <div className="text-sm text-muted-foreground">Partner Schools</div>
+                <div className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary">500+</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Partner Schools</div>
               </div>
               <div>
-                <div className="font-serif text-3xl md:text-4xl font-bold text-primary">1L+</div>
-                <div className="text-sm text-muted-foreground">Happy Students</div>
+                <div className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary">1L+</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Happy Students</div>
               </div>
             </div>
           </div>
 
           {/* Image/Illustration */}
-          <div className="relative animate-slide-in-right delay-200">
+          <div className="relative animate-slide-in-right delay-200 hidden lg:block">
             <div className="relative aspect-square max-w-lg mx-auto">
               {/* Main image container */}
               <div className="absolute inset-4 bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl rotate-3" />

@@ -79,7 +79,7 @@ const Catalogue = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-cream via-background to-cream-dark py-16 md:py-24">
+      <section className="bg-gradient-to-br from-cream via-background to-cream-dark py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="container-custom">
           <SectionHeader
             label="Book Catalogue"
@@ -88,19 +88,19 @@ const Catalogue = () => {
           />
 
           {/* Progress indicator */}
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <div className={`flex items-center gap-2 px-4 py-2 rounded-full ${!selectedBoard ? "bg-primary text-primary-foreground" : "bg-primary/20 text-primary"}`}>
-              <span className="w-6 h-6 rounded-full bg-current/20 flex items-center justify-center text-sm font-medium">1</span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12 px-4">
+            <div className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base ${!selectedBoard ? "bg-primary text-primary-foreground" : "bg-primary/20 text-primary"}`}>
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-current/20 flex items-center justify-center text-xs sm:text-sm font-medium">1</span>
               <span className="font-medium">Select Board</span>
             </div>
-            <div className="w-8 h-0.5 bg-border" />
-            <div className={`flex items-center gap-2 px-4 py-2 rounded-full ${selectedBoard && !selectedClass ? "bg-primary text-primary-foreground" : selectedBoard ? "bg-primary/20 text-primary" : "bg-muted text-muted-foreground"}`}>
-              <span className="w-6 h-6 rounded-full bg-current/20 flex items-center justify-center text-sm font-medium">2</span>
+            <div className="w-0.5 h-4 sm:w-8 sm:h-0.5 bg-border rotate-90 sm:rotate-0" />
+            <div className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base ${selectedBoard && !selectedClass ? "bg-primary text-primary-foreground" : selectedBoard ? "bg-primary/20 text-primary" : "bg-muted text-muted-foreground"}`}>
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-current/20 flex items-center justify-center text-xs sm:text-sm font-medium">2</span>
               <span className="font-medium">Select Class</span>
             </div>
-            <div className="w-8 h-0.5 bg-border" />
-            <div className={`flex items-center gap-2 px-4 py-2 rounded-full ${selectedClass ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
-              <span className="w-6 h-6 rounded-full bg-current/20 flex items-center justify-center text-sm font-medium">3</span>
+            <div className="w-0.5 h-4 sm:w-8 sm:h-0.5 bg-border rotate-90 sm:rotate-0" />
+            <div className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base ${selectedClass ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
+              <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-current/20 flex items-center justify-center text-xs sm:text-sm font-medium">3</span>
               <span className="font-medium">Enquire</span>
             </div>
           </div>

@@ -38,9 +38,9 @@ export function WhyChooseUsSection() {
   return (
     <section className="section-padding bg-background">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
           {/* Image side */}
-          <div className="relative animate-slide-in-left">
+          <div className="relative animate-slide-in-left order-2 lg:order-1">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
@@ -48,9 +48,9 @@ export function WhyChooseUsSection() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-background/90 backdrop-blur-sm rounded-xl p-4">
-                  <p className="font-serif text-lg font-semibold text-foreground">
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                <div className="bg-background/90 backdrop-blur-sm rounded-xl p-3 sm:p-4">
+                  <p className="font-heading text-sm sm:text-base lg:text-lg font-semibold text-foreground">
                     "Building educational partnerships since 1961"
                   </p>
                 </div>
@@ -58,14 +58,14 @@ export function WhyChooseUsSection() {
             </div>
             
             {/* Floating badge */}
-            <div className="absolute -top-6 -right-6 bg-primary text-primary-foreground px-6 py-3 rounded-xl shadow-lg">
-              <div className="text-3xl font-bold font-serif">60+</div>
-              <div className="text-sm">Years Strong</div>
+            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-primary text-primary-foreground px-4 py-2 sm:px-6 sm:py-3 rounded-xl shadow-lg">
+              <div className="text-2xl sm:text-3xl font-bold font-heading">60+</div>
+              <div className="text-xs sm:text-sm">Years Strong</div>
             </div>
           </div>
 
           {/* Content side */}
-          <div className="animate-slide-in-right">
+          <div className="animate-slide-in-right order-1 lg:order-2">
             <SectionHeader
               label="Why Choose Us"
               title="Mumbai's Most Trusted Bookstore"
@@ -73,19 +73,19 @@ export function WhyChooseUsSection() {
               centered={false}
             />
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="grid gap-4 sm:gap-6">
               {features.map((feature, index) => (
                 <div
                   key={feature.title}
-                  className="flex gap-4 animate-fade-in"
+                  className="flex gap-3 sm:gap-4 animate-fade-in"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                    <feature.icon className="h-6 w-6 text-primary" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                    <feature.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground mb-1">{feature.title}</h4>
-                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    <h4 className="font-semibold text-sm sm:text-base text-foreground mb-1">{feature.title}</h4>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
               ))}

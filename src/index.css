@@ -122,28 +122,28 @@
 @layer components {
   .heading-display {
     font-family: 'Poppins', sans-serif;
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
     font-style: normal;
   }
 
   .heading-section {
     font-family: 'Poppins', sans-serif;
-    @apply text-3xl md:text-4xl font-semibold tracking-tight;
+    @apply text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight;
     font-style: normal;
   }
 
   .heading-card {
     font-family: 'Poppins', sans-serif;
-    @apply text-xl md:text-2xl font-semibold;
+    @apply text-lg sm:text-xl md:text-2xl font-semibold;
     font-style: normal;
   }
 
   .text-body {
-    @apply text-base leading-relaxed;
+    @apply text-sm sm:text-base leading-relaxed;
   }
 
   .text-body-lg {
-    @apply text-lg leading-relaxed;
+    @apply text-base sm:text-lg leading-relaxed;
   }
 
   .container-custom {
@@ -151,7 +151,7 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
   }
 
   .card-hover {
@@ -320,6 +320,7 @@
 .flip-card {
   perspective: 1000px;
   height: 100%;
+  min-height: 240px;
 }
 
 .flip-card-inner {
@@ -330,8 +331,17 @@
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
+/* Mobile: tap to flip, Desktop: hover to flip */
+@media (hover: hover) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+@media (hover: none) {
+  .flip-card:active .flip-card-inner {
+    transform: rotateY(180deg);
+  }
 }
 
 .flip-card-front,
@@ -355,5 +365,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .flip-card-back {
+    padding: 1.5rem;
+  }
 }

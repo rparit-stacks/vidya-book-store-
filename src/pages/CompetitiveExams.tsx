@@ -55,34 +55,34 @@ const CompetitiveExams = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative bg-gradient-to-br from-orange-50 via-background to-cream py-20 md:py-28">
+      <section className="relative bg-gradient-to-br from-orange-50 via-background to-cream py-12 sm:py-16 md:py-20 lg:py-28">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <span className="inline-block px-4 py-1.5 bg-orange-500/10 text-orange-600 text-sm font-medium rounded-full mb-4">
+              <span className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 bg-orange-500/10 text-orange-600 text-xs sm:text-sm font-medium rounded-full mb-3 sm:mb-4">
                 Crack Your Exam
               </span>
-              <h1 className="heading-display text-foreground mb-6">
+              <h1 className="heading-display text-foreground mb-4 sm:mb-6">
                 Competitive{" "}
                 <span className="text-primary">Exam Books</span>
               </h1>
-              <p className="text-body-lg text-muted-foreground mb-8">
+              <p className="text-body-lg text-muted-foreground mb-6 sm:mb-8">
                 Comprehensive study materials, practice papers, and guides for 
                 all major competitive exams. From MBA to Government jobs, 
                 we've got you covered.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button
                   size="lg"
-                  className="btn-primary"
+                  className="btn-primary w-full sm:w-auto"
                   onClick={() => setIsDialogOpen(true)}
                 >
                   Enquire Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative hidden lg:block">
               <img
                 src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop"
                 alt="Student studying"
