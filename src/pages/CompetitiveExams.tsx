@@ -9,30 +9,37 @@ const examCategories = [
   {
     category: "Management",
     exams: ["MBA CET", "CAT", "GMAT", "XAT", "MAT", "CMAT"],
+    details: "Complete study materials for MBA entrance exams including practice papers, mock tests, and comprehensive guides from top publishers.",
   },
   {
     category: "Engineering & Science",
     exams: ["GATE", "JEE Main", "JEE Advanced", "NEET"],
+    details: "Extensive collection of engineering and medical entrance exam books with solved papers, concept books, and test series.",
   },
   {
     category: "Teaching",
     exams: ["CTET", "TET", "BED Entrance", "DED Entrance"],
+    details: "Teaching exam preparation materials covering pedagogy, child development, and subject-specific content with practice questions.",
   },
   {
     category: "Study Abroad",
     exams: ["IELTS", "TOEFL", "GRE", "SAT"],
+    details: "Official guides and practice materials for international exams. Vocabulary builders, practice tests, and strategy guides available.",
   },
   {
     category: "Government Jobs",
     exams: ["Bank PO/Clerk", "SSC", "Railways", "NDA", "CDS"],
+    details: "Comprehensive preparation books for government job exams with current affairs, reasoning, quantitative aptitude, and general knowledge.",
   },
   {
     category: "Research & Academia",
     exams: ["UGC NET", "SET", "CSIR NET"],
+    details: "Subject-wise study materials for research entrance exams with previous year papers, practice sets, and comprehensive theory coverage.",
   },
   {
     category: "Design",
     exams: ["NIFT", "NID", "UCEED", "CEED"],
+    details: "Design aptitude books, portfolio preparation guides, and creative thinking materials for design entrance examinations.",
   },
 ];
 
@@ -96,26 +103,41 @@ const CompetitiveExams = () => {
           />
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {examCategories.map((category) => (
-              <div
-                key={category.category}
-                className="bg-card p-6 rounded-xl border border-border"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center">
-                    <Trophy className="h-5 w-5 text-orange-600" />
+              <div key={category.category} className="flip-card h-72">
+                <div className="flip-card-inner">
+                  {/* Front */}
+                  <div className="flip-card-front p-6 flex flex-col">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                        <Trophy className="h-5 w-5 text-orange-600" />
+                      </div>
+                      <h3 className="font-semibold text-foreground">{category.category}</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {category.exams.map((exam) => (
+                        <span
+                          key={exam}
+                          className="px-3 py-1.5 bg-muted text-sm rounded-full"
+                        >
+                          {exam}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-xs text-primary mt-auto">Hover for details →</p>
                   </div>
-                  <h3 className="font-semibold text-foreground">{category.category}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {category.exams.map((exam) => (
-                    <button
-                      key={exam}
-                      onClick={() => handleEnquiry(exam)}
-                      className="px-3 py-1.5 bg-muted text-sm rounded-full hover:bg-primary hover:text-primary-foreground transition-colors"
+                  {/* Back */}
+                  <div className="flip-card-back">
+                    <h3 className="font-semibold text-lg mb-3">{category.category}</h3>
+                    <p className="text-sm leading-relaxed opacity-90 mb-4">{category.details}</p>
+                    <Button
+                      size="sm"
+                      variant="secondary"
+                      onClick={() => handleEnquiry(category.category)}
+                      className="w-full"
                     >
-                      {exam}
-                    </button>
-                  ))}
+                      Enquire Now
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}

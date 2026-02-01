@@ -10,21 +10,25 @@ const features = [
     icon: BookOpen,
     title: "All Streams",
     description: "Engineering, Commerce, Arts, Science, Medicine, and more.",
+    details: "Comprehensive collection of textbooks for all university streams including Engineering, Medical, Commerce, Arts, Science, Law, and Management courses.",
   },
   {
     icon: RefreshCcw,
     title: "Buyback Program",
     description: "Sell your used textbooks back to us at the end of the semester.",
+    details: "Get fair market value for your used books. Quick evaluation, instant payment, and hassle-free process. Save money while helping other students.",
   },
   {
     icon: BadgePercent,
     title: "Competitive Prices",
     description: "Super distributor rates ensure you get the best deals.",
+    details: "As authorized super distributors, we offer the most competitive prices on all textbooks. Bulk discounts available for institutions and student groups.",
   },
   {
     icon: Truck,
     title: "Delivery Available",
     description: "Get books delivered to your hostel or home address.",
+    details: "Convenient delivery service to your doorstep. Free delivery on orders above ₹500 within Mumbai. Pan-India shipping available.",
   },
 ];
 
@@ -77,15 +81,23 @@ const CollegeTextbooks = () => {
         <div className="container-custom">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="bg-card p-6 rounded-xl border border-border hover:shadow-lg transition-all"
-              >
-                <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4">
-                  <feature.icon className="h-6 w-6 text-purple-600" />
+              <div key={feature.title} className="flip-card h-64">
+                <div className="flip-card-inner">
+                  {/* Front */}
+                  <div className="flip-card-front p-6 flex flex-col">
+                    <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4">
+                      <feature.icon className="h-6 w-6 text-purple-600" />
+                    </div>
+                    <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
+                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    <p className="text-xs text-primary mt-auto">Hover for details →</p>
+                  </div>
+                  {/* Back */}
+                  <div className="flip-card-back">
+                    <h3 className="font-semibold text-lg mb-3">{feature.title}</h3>
+                    <p className="text-sm leading-relaxed opacity-90">{feature.details}</p>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
               </div>
             ))}
           </div>

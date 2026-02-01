@@ -68,11 +68,13 @@ export function Header() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-serif font-bold text-lg md:text-xl">V</span>
-              </div>
+              <img 
+                src="/logo.png" 
+                alt="Vidyarthi Book Depot" 
+                className="w-10 h-10 md:w-12 md:h-12 object-contain"
+              />
               <div className="flex flex-col">
-                <span className="font-serif font-bold text-lg md:text-xl text-foreground leading-tight">
+                <span className="font-heading font-bold text-lg md:text-xl text-foreground leading-tight">
                   Vidyarthi Book Depot
                 </span>
                 <span className="text-xs text-muted-foreground hidden sm:block">Since 1961</span>

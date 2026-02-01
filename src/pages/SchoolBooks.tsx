@@ -10,21 +10,25 @@ const features = [
     icon: BookOpen,
     title: "All Major Boards",
     description: "Complete textbook sets for State Board, ICSE, CBSE, IGCSE, and IB curricula.",
+    details: "We stock authentic books from authorized publishers for all major educational boards. Get complete sets or individual books as per your requirement.",
   },
   {
     icon: FileText,
     title: "Reference Books",
     description: "Additional study materials, guides, and practice papers from leading publishers.",
+    details: "Enhance learning with reference books, workbooks, and practice papers from top publishers like Navneet, Target, Arihant, and more.",
   },
   {
     icon: Notebook,
     title: "Notebooks & Supplies",
     description: "School-specific notebooks, lab manuals, and required stationery items.",
+    details: "Get school-specific notebooks with proper labeling, lab manuals, practical books, and all required stationery supplies in one place.",
   },
   {
     icon: GraduationCap,
     title: "Exam Preparation",
     description: "Board exam preparation materials and previous year question papers.",
+    details: "Prepare confidently with sample papers, previous year questions, revision notes, and exam-focused study materials for all boards.",
   },
 ];
 
@@ -82,15 +86,23 @@ const SchoolBooks = () => {
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="bg-card p-6 rounded-xl border border-border hover:shadow-lg transition-all"
-              >
-                <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
-                  <feature.icon className="h-6 w-6 text-blue-600" />
+              <div key={feature.title} className="flip-card h-64">
+                <div className="flip-card-inner">
+                  {/* Front */}
+                  <div className="flip-card-front p-6 flex flex-col">
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
+                      <feature.icon className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
+                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    <p className="text-xs text-primary mt-auto">Hover for details →</p>
+                  </div>
+                  {/* Back */}
+                  <div className="flip-card-back">
+                    <h3 className="font-semibold text-lg mb-3">{feature.title}</h3>
+                    <p className="text-sm leading-relaxed opacity-90">{feature.details}</p>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
               </div>
             ))}
           </div>

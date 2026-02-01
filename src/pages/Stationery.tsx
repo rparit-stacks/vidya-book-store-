@@ -86,25 +86,42 @@ const Stationery = () => {
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {stationeryCategories.map((category) => (
-              <div
-                key={category.name}
-                className="bg-card p-6 rounded-xl border border-border hover:shadow-lg transition-all"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-pink-500/10 rounded-lg flex items-center justify-center">
-                    <Pencil className="h-5 w-5 text-pink-600" />
+              <div key={category.name} className="flip-card h-72">
+                <div className="flip-card-inner">
+                  {/* Front */}
+                  <div className="flip-card-front p-6 flex flex-col">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-pink-500/10 rounded-lg flex items-center justify-center">
+                        <Pencil className="h-5 w-5 text-pink-600" />
+                      </div>
+                      <h3 className="font-semibold text-foreground">{category.name}</h3>
+                    </div>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {category.items.slice(0, 4).map((item) => (
+                        <span
+                          key={item}
+                          className="px-2 py-1 bg-muted text-xs rounded text-muted-foreground"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-xs text-primary mt-auto">Hover for all items →</p>
                   </div>
-                  <h3 className="font-semibold text-foreground">{category.name}</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {category.items.map((item) => (
-                    <span
-                      key={item}
-                      className="px-2 py-1 bg-muted text-xs rounded text-muted-foreground"
-                    >
-                      {item}
-                    </span>
-                  ))}
+                  {/* Back */}
+                  <div className="flip-card-back">
+                    <h3 className="font-semibold text-lg mb-3">{category.name}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {category.items.map((item) => (
+                        <span
+                          key={item}
+                          className="px-2 py-1 bg-white/20 text-xs rounded"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

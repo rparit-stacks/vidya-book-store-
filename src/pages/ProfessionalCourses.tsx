@@ -37,16 +37,19 @@ const features = [
     icon: BookOpen,
     title: "Official Publications",
     description: "Authentic textbooks from ICAI, ICSI, and authorized publishers.",
+    details: "Get genuine study materials directly from ICAI, ICSI, and other professional bodies. All books are latest editions with updated amendments.",
   },
   {
     icon: FileText,
     title: "Practice Manuals",
     description: "Solved papers, practice questions, and revision notes.",
+    details: "Comprehensive practice materials including solved papers, MCQs, case studies, and revision notes to help you ace your exams.",
   },
   {
     icon: Award,
     title: "Latest Editions",
     description: "Always updated with the latest syllabus and amendments.",
+    details: "We ensure all books are as per the latest syllabus. Get notified about amendments and updates relevant to your course level.",
   },
 ];
 
@@ -105,15 +108,23 @@ const ProfessionalCourses = () => {
         <div className="container-custom">
           <div className="grid sm:grid-cols-3 gap-6">
             {features.map((feature) => (
-              <div
-                key={feature.title}
-                className="bg-card p-6 rounded-xl border border-border text-center"
-              >
-                <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <feature.icon className="h-6 w-6 text-green-600" />
+              <div key={feature.title} className="flip-card h-64">
+                <div className="flip-card-inner">
+                  {/* Front */}
+                  <div className="flip-card-front p-6 flex flex-col text-center">
+                    <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                      <feature.icon className="h-6 w-6 text-green-600" />
+                    </div>
+                    <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
+                    <p className="text-sm text-muted-foreground">{feature.description}</p>
+                    <p className="text-xs text-primary mt-auto">Hover for details →</p>
+                  </div>
+                  {/* Back */}
+                  <div className="flip-card-back">
+                    <h3 className="font-semibold text-lg mb-3">{feature.title}</h3>
+                    <p className="text-sm leading-relaxed opacity-90">{feature.details}</p>
+                  </div>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
               </div>
             ))}
           </div>

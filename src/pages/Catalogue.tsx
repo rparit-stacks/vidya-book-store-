@@ -4,37 +4,39 @@ import { SectionHeader } from "@/components/common/SectionHeader";
 import { EnquiryDialog } from "@/components/common/EnquiryDialog";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSchool, faGraduationCap, faBook, faGlobe, faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 
 const boards = [
   {
     id: "state-board",
     name: "Maharashtra State Board",
     description: "SSC/HSC curriculum for Maharashtra students",
-    icon: "🏛️",
+    icon: faSchool,
   },
   {
     id: "icse",
     name: "ICSE / ISC",
     description: "Indian Certificate of Secondary Education",
-    icon: "📚",
+    icon: faBook,
   },
   {
     id: "cbse",
     name: "CBSE",
     description: "Central Board of Secondary Education",
-    icon: "🎓",
+    icon: faGraduationCap,
   },
   {
     id: "igcse",
     name: "IGCSE",
     description: "International General Certificate of Secondary Education",
-    icon: "🌍",
+    icon: faGlobe,
   },
   {
     id: "ib",
     name: "IB",
     description: "International Baccalaureate Programme",
-    icon: "🌐",
+    icon: faEarthAmericas,
   },
 ];
 
@@ -128,18 +130,25 @@ const Catalogue = () => {
           </h3>
 
           {!selectedBoard ? (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {boards.map((board) => (
                 <button
                   key={board.id}
                   onClick={() => handleBoardSelect(board.id)}
-                  className="bg-card p-6 rounded-xl border border-border hover:border-primary hover:shadow-lg transition-all duration-300 text-left group"
+                  className="bg-card p-8 rounded-2xl border-2 border-border hover:border-primary hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-left group relative overflow-hidden"
                 >
-                  <div className="text-4xl mb-4">{board.icon}</div>
-                  <h4 className="font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
-                    {board.name}
-                  </h4>
-                  <p className="text-sm text-muted-foreground">{board.description}</p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative z-10">
+                    <div className="text-5xl mb-6 text-primary group-hover:scale-110 transition-transform duration-300">
+                      <FontAwesomeIcon icon={board.icon} />
+                    </div>
+                    <h4 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors text-lg">
+                      {board.name}
+                    </h4>
+                    <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                      {board.description}
+                    </p>
+                  </div>
                 </button>
               ))}
             </div>
@@ -148,14 +157,14 @@ const Catalogue = () => {
               <h3 className="heading-card text-foreground mb-8 text-center mt-12">
                 Step 2: Select Your Class
               </h3>
-              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-3">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-8 gap-4">
                 {classLevels.map((cls) => (
                   <button
                     key={cls.id}
                     onClick={() => handleClassSelect(cls.id)}
-                    className="bg-card p-4 rounded-xl border border-border hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-center group"
+                    className="bg-card p-5 rounded-xl border-2 border-border hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-all duration-300 text-center group"
                   >
-                    <span className="font-medium">{cls.name}</span>
+                    <span className="font-semibold text-lg">{cls.name}</span>
                   </button>
                 ))}
               </div>
@@ -168,21 +177,27 @@ const Catalogue = () => {
       <section className="section-padding bg-cream">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-background p-6 rounded-xl shadow-sm">
-              <h4 className="font-semibold text-foreground mb-2">Complete Book Sets</h4>
-              <p className="text-muted-foreground text-sm">
+            <div className="bg-background p-8 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+              <h4 className="font-semibold text-foreground mb-3 text-lg group-hover:text-primary transition-colors">
+                Complete Book Sets
+              </h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Get all required textbooks, workbooks, and notebooks for your class in one convenient set.
               </p>
             </div>
-            <div className="bg-background p-6 rounded-xl shadow-sm">
-              <h4 className="font-semibold text-foreground mb-2">Individual Books</h4>
-              <p className="text-muted-foreground text-sm">
+            <div className="bg-background p-8 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+              <h4 className="font-semibold text-foreground mb-3 text-lg group-hover:text-primary transition-colors">
+                Individual Books
+              </h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Need specific textbooks or reference materials? We have a wide selection available.
               </p>
             </div>
-            <div className="bg-background p-6 rounded-xl shadow-sm">
-              <h4 className="font-semibold text-foreground mb-2">Study Guides</h4>
-              <p className="text-muted-foreground text-sm">
+            <div className="bg-background p-8 rounded-2xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+              <h4 className="font-semibold text-foreground mb-3 text-lg group-hover:text-primary transition-colors">
+                Study Guides
+              </h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Supplement your studies with guides, practice papers, and reference books.
               </p>
             </div>

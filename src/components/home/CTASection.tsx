@@ -22,7 +22,7 @@ export function CTASection() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link to="/catalogue">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 w-full sm:w-auto">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6 w-full sm:w-auto">
               Browse Catalogue
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -31,7 +31,7 @@ export function CTASection() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-background text-background hover:bg-background hover:text-foreground text-lg px-8 py-6 w-full sm:w-auto"
+              className="border-2 border-background bg-transparent text-background hover:bg-background hover:text-foreground text-lg px-8 py-6 w-full sm:w-auto"
             >
               <Phone className="mr-2 h-5 w-5" />
               Call Now
